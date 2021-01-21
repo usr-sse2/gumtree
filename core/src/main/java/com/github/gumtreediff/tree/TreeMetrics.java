@@ -20,7 +20,9 @@
 
 package com.github.gumtreediff.tree;
 
-public class TreeMetrics {
+import java.io.Serializable;
+
+public class TreeMetrics implements Serializable {
     public final int size;
 
     public final int height;

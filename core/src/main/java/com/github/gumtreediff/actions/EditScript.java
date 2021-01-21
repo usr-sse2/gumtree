@@ -21,6 +21,7 @@ package com.github.gumtreediff.actions;
 
 import com.github.gumtreediff.actions.model.Action;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -30,7 +31,7 @@ import java.util.List;
  *
  * @see Action
  */
-public class EditScript implements Iterable<Action> {
+public class EditScript implements Iterable<Action>, Serializable {
     private List<Action> actions;
 
     public EditScript() {

@@ -22,7 +22,9 @@ package com.github.gumtreediff.actions.model;
 
 import com.github.gumtreediff.tree.Tree;
 
-public abstract class Action {
+import java.io.Serializable;
+
+public abstract class Action implements Serializable {
     protected Tree node;
 
     public Action(Tree node) {

@@ -22,10 +22,11 @@ package com.github.gumtreediff.tree;
 
 import com.github.gumtreediff.io.TreeIoUtils;
 
+import java.io.Serializable;
 import java.util.*;
 
-public abstract class AbstractTree implements Tree {
-    protected Tree parent;
+public abstract class AbstractTree implements Tree, Serializable {
+    protected transient Tree parent;
 
     protected List<Tree> children;
 

@@ -20,7 +20,9 @@
 
 package com.github.gumtreediff.utils;
 
-public class Pair<T1, T2> {
+import java.io.Serializable;
+
+public class Pair<T1, T2> implements Serializable {
 
     public final T1 first;
 

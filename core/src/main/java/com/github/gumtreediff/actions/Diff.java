@@ -27,8 +27,9 @@ import com.github.gumtreediff.matchers.Matchers;
 import com.github.gumtreediff.tree.TreeContext;
 
 import java.io.IOException;
+import java.io.Serializable;
 
-public class Diff {
+public class Diff implements Serializable {
     public final TreeContext src;
     public final TreeContext dst;
     public final MappingStore mappings;

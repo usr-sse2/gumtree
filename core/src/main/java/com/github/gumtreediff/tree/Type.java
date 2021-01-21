@@ -19,9 +19,11 @@
 
 package com.github.gumtreediff.tree;
 
+import java.io.Serializable;
+
 import static com.github.gumtreediff.tree.TypeSet.type;
 
-public final class Type {
+public final class Type implements Serializable {
 
     public final String name;
 

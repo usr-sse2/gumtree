@@ -23,10 +23,12 @@ package com.github.gumtreediff.matchers;
 import com.github.gumtreediff.tree.Tree;
 import com.github.gumtreediff.utils.Pair;
 
+import java.io.Serializable;
+
 /**
  * A mapping between a src and a dst tree.
  */
-public class Mapping extends Pair<Tree, Tree> {
+public class Mapping extends Pair<Tree, Tree> implements Serializable {
     public Mapping(Tree a, Tree b) {
         super(a, b);
     }

@@ -25,15 +25,16 @@ import com.github.gumtreediff.io.TreeIoUtils.MetadataSerializer;
 import com.github.gumtreediff.io.TreeIoUtils.MetadataUnserializer;
 import com.github.gumtreediff.io.TreeIoUtils.TreeFormatter;
 
+import java.io.Serializable;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
-public class TreeContext {
+public class TreeContext implements Serializable {
 
     private final Map<String, Object> metadata = new HashMap<>();
 
-    private final MetadataSerializers serializers = new MetadataSerializers();
+    private transient final MetadataSerializers serializers = new MetadataSerializers();
 
     private Tree root;
 

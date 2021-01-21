@@ -20,6 +20,7 @@
 
 package com.github.gumtreediff.matchers;
 
+import java.io.Serializable;
 import java.util.*;
 
 import com.github.gumtreediff.tree.Tree;
@@ -27,7 +28,7 @@ import com.github.gumtreediff.tree.Tree;
 /**
  * Stores the mappings between the nodes of a src and dst trees.
  */
-public class MappingStore implements Iterable<Mapping> {
+public class MappingStore implements Iterable<Mapping>, Serializable {
     public final Tree src;
     public final Tree dst;
 
