@@ -66,6 +66,10 @@ public class GtCssVisitor implements ICSSVisitor {
         int length = end - pos + 1;
         t.setPos(pos + 1);
         t.setLength(length);
+        t.setLine(l.getFirstTokenBeginLineNumber());
+        t.setCol(l.getFirstTokenBeginColumnNumber());
+        t.setEndLine(l.getLastTokenEndLineNumber());
+        t.setEndCol(l.getLastTokenEndColumnNumber());
     }
 
     private Type symbol(ICSSSourceLocationAware a) {

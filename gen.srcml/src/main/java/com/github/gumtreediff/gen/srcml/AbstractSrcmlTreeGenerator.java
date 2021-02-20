@@ -122,11 +122,18 @@ public abstract class AbstractSrcmlTreeGenerator extends ExternalProcessTreeGene
                 if (t.getPos() == Tree.NO_POS || t.getLength() == Tree.NO_POS) {
                     Tree firstChild = t.getChild(0);
                     t.setPos(firstChild.getPos());
-                    if (t.getChildren().size() == 1)
+                    t.setLine(firstChild.getLine());
+                    t.setCol(firstChild.getCol());
+                    if (t.getChildren().size() == 1) {
                         t.setLength(firstChild.getLength());
+                        t.setEndLine(firstChild.getEndLine());
+                        t.setEndCol(firstChild.getEndCol());
+                    }
                     else {
                         Tree lastChild = t.getChild(t.getChildren().size() - 1);
                         t.setLength(lastChild.getEndPos() - firstChild.getPos());
+                        t.setEndLine(lastChild.getEndLine());
+                        t.setEndCol(lastChild.getEndCol());
                     }
                 }
             }
@@ -140,6 +147,8 @@ public abstract class AbstractSrcmlTreeGenerator extends ExternalProcessTreeGene
             int line = Integer.parseInt(chunks[0]);
             int column = Integer.parseInt(chunks[1]);
             t.setPos(lr.positionFor(line, column));
+            t.setLine(line);
+            t.setCol(column);
             setLength(t, e);
         }
     }
@@ -153,6 +162,8 @@ public abstract class AbstractSrcmlTreeGenerator extends ExternalProcessTreeGene
             int line = Integer.parseInt(chunks[0]);
             int column = Integer.parseInt(chunks[1]);
             t.setLength(lr.positionFor(line, column) - t.getPos() + 1);
+            t.setEndLine(line);
+            t.setEndCol(column);
         }
     }
 

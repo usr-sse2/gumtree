@@ -30,6 +30,10 @@ public final class ImmutableTree extends AbstractTree {
 
     private final int pos;
     private final int length;
+    private final int line;
+    private final int col;
+    private final int endLine;
+    private final int endCol;
 
     private final AssociationMap metadata;
 
@@ -45,6 +49,10 @@ public final class ImmutableTree extends AbstractTree {
         label = t.getLabel();
         type = t.getType();
         pos = t.getPos();
+        line = t.getLine();
+        col = t.getCol();
+        endLine = t.getEndLine();
+        endCol = t.getEndCol();
         length = t.getLength();
         metadata = new AssociationMap();
         metrics = t.getMetrics();
@@ -76,6 +84,30 @@ public final class ImmutableTree extends AbstractTree {
     public void setLabel(String label) {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public int getLine() { return line; }
+
+    @Override
+    public void setLine(int line) { throw new UnsupportedOperationException(); }
+
+    @Override
+    public int getCol() { return col; }
+
+    @Override
+    public void setCol(int col) { throw new UnsupportedOperationException(); }
+
+    @Override
+    public int getEndLine() { return endLine; }
+
+    @Override
+    public void setEndLine(int endLine) { throw new UnsupportedOperationException(); }
+
+    @Override
+    public int getEndCol() { return endCol; }
+
+    @Override
+    public void setEndCol(int endCol) { throw new UnsupportedOperationException(); }
 
     @Override
     public int getPos() {

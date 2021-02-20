@@ -67,6 +67,8 @@ public class RubyTreeGenerator extends TreeGenerator {
         int length = node.getPosition().getEndOffset() - node.getPosition().getStartOffset();
         tree.setPos(pos);
         tree.setLength(length);
+        tree.setLine(node.getPosition().getStartLine());
+        tree.setEndLine(node.getPosition().getEndLine());
 
         for (Node childNode: node.childNodes())
             extractTreeContext(treeContext, childNode, tree);

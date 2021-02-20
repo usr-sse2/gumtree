@@ -173,12 +173,29 @@ public class TreeContext {
         public void load(Tree tree, String key, String value) throws Exception {
             MetadataUnserializer s = serializers.get(key);
             if (s != null) {
-                if (key.equals("pos"))
-                    tree.setPos(Integer.parseInt(value));
-                else if (key.equals("length"))
-                    tree.setLength(Integer.parseInt(value));
-                else
-                    tree.setMetadata(key, s.fromString(value));
+                switch (key) {
+                    case "pos":
+                        tree.setPos(Integer.parseInt(value));
+                        break;
+                    case "length":
+                        tree.setLength(Integer.parseInt(value));
+                        break;
+                    case "line":
+                        tree.setLine(Integer.parseInt(value));
+                        break;
+                    case "col":
+                        tree.setCol(Integer.parseInt(value));
+                        break;
+                    case "endLine":
+                        tree.setEndLine(Integer.parseInt(value));
+                        break;
+                    case "endCol":
+                        tree.setEndCol(Integer.parseInt(value));
+                        break;
+                    default:
+                        tree.setMetadata(key, s.fromString(value));
+                        break;
+                }
             }
         }
     }

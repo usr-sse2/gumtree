@@ -228,6 +228,15 @@ public interface Tree {
      */
     void setLabel(String label);
 
+    int getLine();
+    void setLine(int line);
+    int getCol();
+    void setCol(int col);
+    int getEndLine();
+    void setEndLine(int endLine);
+    int getEndCol();
+    void setEndCol(int endCol);
+
     /**
      * Returns the absolute character beginning position of the node in its defining stream.
      */

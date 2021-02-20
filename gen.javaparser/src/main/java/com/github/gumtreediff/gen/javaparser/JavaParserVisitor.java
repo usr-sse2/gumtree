@@ -89,7 +89,7 @@ public class JavaParserVisitor extends TreeVisitor {
             Position end = n.getRange().get().end;
             int startPos = reader.positionFor(begin.line, begin.column);
             int length = reader.positionFor(end.line, end.column) - startPos + 2;
-            push(nodeAsSymbol(n), label, startPos, length);
+            push(nodeAsSymbol(n), label, startPos, length, begin.line, begin.column, end.line, end.column);
         }
         catch (NoSuchElementException ignore) { }
 
@@ -99,10 +99,14 @@ public class JavaParserVisitor extends TreeVisitor {
         return TypeSet.type(n.getClass().getSimpleName());
     }
 
-    private void push(Type type, String label, int startPosition, int length) {
+    private void push(Type type, String label, int startPosition, int length, int line, int col, int endLine, int endCol) {
         Tree t = context.createTree(type, label);
         t.setPos(startPosition);
         t.setLength(length);
+        t.setLine(line);
+        t.setCol(col);
+        t.setEndLine(endLine);
+        t.setEndCol(endCol);
 
         if (trees.isEmpty())
             context.setRoot(t);

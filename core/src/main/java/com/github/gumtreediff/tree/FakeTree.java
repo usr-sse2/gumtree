@@ -71,6 +71,29 @@ public class FakeTree extends AbstractTree {
     }
 
     @Override
+    public int getLine() { return Collections.min(children, (t1, t2) -> t2.getPos() - t1.getPos()).getLine(); }
+
+    @Override
+    public void setLine(int line) { throw unsupportedOperation(); }
+
+    @Override
+    public int getCol() { return Collections.min(children, (t1, t2) -> t2.getPos() - t1.getPos()).getCol(); }
+
+    @Override
+    public void setCol(int col) { throw unsupportedOperation(); }
+    @Override
+    public int getEndLine() { return Collections.max(children, (t1, t2) -> t2.getPos() - t1.getPos()).getEndLine(); }
+
+    @Override
+    public void setEndLine(int endLine) { throw unsupportedOperation(); }
+
+    @Override
+    public int getEndCol() { return Collections.max(children, (t1, t2) -> t2.getPos() - t1.getPos()).getEndCol(); }
+
+    @Override
+    public void setEndCol(int endCol) { throw unsupportedOperation(); }
+
+    @Override
     public void setLength(int length) {
         throw unsupportedOperation();
     }

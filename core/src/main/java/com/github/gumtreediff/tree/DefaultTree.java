@@ -31,6 +31,10 @@ public class DefaultTree extends AbstractTree implements Tree {
 
     private int pos;
     private int length;
+    private int line;
+    private int col;
+    private int endLine;
+    private int endCol;
 
     private AssociationMap metadata;
 
@@ -65,6 +69,10 @@ public class DefaultTree extends AbstractTree implements Tree {
     protected DefaultTree(Tree other) {
         this.type = other.getType();
         this.label = other.getLabel();
+        this.line = other.getLine();
+        this.col = other.getCol();
+        this.endLine = other.getEndLine();
+        this.endCol = other.getEndCol();
         this.pos = other.getPos();
         this.length = other.getLength();
         this.children = new ArrayList<>();
@@ -102,6 +110,30 @@ public class DefaultTree extends AbstractTree implements Tree {
     public void setLabel(String label) {
         this.label = (label == null) ? NO_LABEL : label.intern();
     }
+
+    @Override
+    public int getLine() { return line; }
+
+    @Override
+    public void setLine(int line) { this.line = line; }
+
+    @Override
+    public int getCol() { return col; }
+
+    @Override
+    public void setCol(int col) { this.col = col; }
+
+    @Override
+    public int getEndLine() { return endLine; }
+
+    @Override
+    public void setEndLine(int endLine) { this.endLine = endLine; }
+
+    @Override
+    public int getEndCol() { return endCol; }
+
+    @Override
+    public void setEndCol(int endCol) { this.endCol = endCol; }
 
     @Override
     public void setLength(int length) {
